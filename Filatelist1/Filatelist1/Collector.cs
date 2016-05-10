@@ -14,8 +14,8 @@ namespace Filatelist1
         public string Country { set; get; }     // Страна
         public string Name { set; get; }    // Имя
         public string Phone { set; get; }     // телефон
-        public double Id { set; get; } // Номер коллекционера.
-        public ListOfMarks Listmarks = new ListOfMarks();   // Колекция марок
+        public int Id { set; get; } // Номер коллекционера.
+        public ListOfMarks Listmarks;   // Колекция марок
         
         /// <summary>
         /// Конструктор для создания нового коллекционера.
@@ -25,12 +25,13 @@ namespace Filatelist1
         /// <param name="p"></param>
         /// <param name="id"></param>
 
-        public Collector(string n, string c, string p, double id)
+        public Collector(string n, string c, string p, int id)
         {
             Name = n;
             Phone = p;
             Country = c;
             Id = id;
+            Listmarks = new ListOfMarks();
         }
         
 

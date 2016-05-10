@@ -16,7 +16,7 @@ namespace Filatelist1
         public string Year { set; get; }  // год выпуска
         public string Tirage { set; get; }  // тираж
         public string Special { set; get; }   // особенности
-        public double Id { set; get; } // Номар марки
+        public int Id { set; get; } // Номар марки
         public Collector Coll { set; get; } // коллекционер
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Filatelist1
         /// <param name="specia"></param>
         /// <param name="id"></param>
         /// <param name="c"></param>
-        public Marka(string cou, string nomin, string yea, string tirag, string specia, double id, Collector c)
+        public Marka(string cou, string nomin, string yea, string tirag, string specia, int id, Collector c)
         {
             Country = cou;
             Nominal = nomin;

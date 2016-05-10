@@ -67,6 +67,7 @@ namespace Filatelist1
             }
             else
             {
+                listBox2.Items.Clear();
                 foreach (Marka mark in Serial.collectorsList[listBox1.SelectedIndex].Listmarks)
                  listBox2.Items.Add(mark.Special);
             }

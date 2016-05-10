@@ -43,9 +43,9 @@
             this.name,
             this.country,
             this.phone});
-            this.collectorGridView.Location = new System.Drawing.Point(12, 12);
+            this.collectorGridView.Location = new System.Drawing.Point(5, 12);
             this.collectorGridView.Name = "collectorGridView";
-            this.collectorGridView.Size = new System.Drawing.Size(343, 150);
+            this.collectorGridView.Size = new System.Drawing.Size(349, 150);
             this.collectorGridView.TabIndex = 0;
             // 
             // name
@@ -80,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 261);
+            this.ClientSize = new System.Drawing.Size(376, 261);
             this.Controls.Add(this.main);
             this.Controls.Add(this.collectorGridView);
             this.Name = "AllCollectors";

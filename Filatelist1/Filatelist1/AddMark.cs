@@ -15,8 +15,8 @@ namespace Filatelist1
     public partial class AddMark : Form
     {
         Marka temp;
-        private double id;
-       
+        private int id;
+               
         public AddMark()
         {
             InitializeComponent();
@@ -51,29 +51,15 @@ namespace Filatelist1
             else
             {
                 Serial.OpenCollector(); 
-                    Serial.OpenMark();
-
-                if (Serial.marksList.Count == 0)
-                {
-                    id = 0;
-                    temp = new Marka(countryBox.Text,
-                        nominalBox.Text, yearBox.Text, tirageBox.Text,
+                Serial.OpenMark();
+                id = Serial.marksList.Count;
+                temp = new Marka(countryBox.Text, nominalBox.Text, yearBox.Text, tirageBox.Text,
                         specialBox.Text, id, Serial.collectorsList[collectorBox.SelectedIndex]);
-                    Serial.marksList.Add(temp);
-                    Serial.collectorsList[collectorBox.SelectedIndex].Listmarks.Add(temp);
-                    MessageBox.Show("Марка добавлена");
-                }
-                else
-                {
-                    temp = new Marka(countryBox.Text,
-                       nominalBox.Text, yearBox.Text, tirageBox.Text,
-                       specialBox.Text, id, Serial.collectorsList[collectorBox.SelectedIndex]);
-                    Serial.marksList.Add(temp);
-                    Serial.collectorsList[collectorBox.SelectedIndex].Listmarks.Add(temp);
-                    MessageBox.Show("Марка добавлена");
-                }
+                Serial.marksList.Add(temp);
+                Serial.collectorsList[Serial.collectorsList[collectorBox.SelectedIndex].Id].Listmarks.Add(temp);
+                MessageBox.Show("Марка добавлена");
                 
-             }
+            }
 
             Serial.SaveCollector();
             Serial.SaveMark();

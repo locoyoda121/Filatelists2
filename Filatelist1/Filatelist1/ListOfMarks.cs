@@ -11,9 +11,6 @@ namespace Filatelist1
     [Serializable]
     class ListOfMarks : List<Marka>
     {
-        List<Marka> listofmarks = new List<Marka>();
-
-        public List<Marka> ListMarks { get; set; }
- 
+    
     }
 }

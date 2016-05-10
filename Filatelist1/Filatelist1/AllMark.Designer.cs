@@ -52,7 +52,7 @@
             this.collector});
             this.MarksGridView.Location = new System.Drawing.Point(12, 149);
             this.MarksGridView.Name = "MarksGridView";
-            this.MarksGridView.Size = new System.Drawing.Size(573, 150);
+            this.MarksGridView.Size = new System.Drawing.Size(547, 150);
             this.MarksGridView.TabIndex = 0;
             // 
             // year
@@ -87,7 +87,7 @@
             // 
             // main
             // 
-            this.main.Location = new System.Drawing.Point(476, 305);
+            this.main.Location = new System.Drawing.Point(450, 305);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(109, 39);
             this.main.TabIndex = 1;
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 356);
+            this.ClientSize = new System.Drawing.Size(574, 356);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.main);
             this.Controls.Add(this.MarksGridView);

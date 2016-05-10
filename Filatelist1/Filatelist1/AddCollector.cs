@@ -15,7 +15,7 @@ namespace Filatelist1
     {
        
         Collector temp;
-        private double id;
+        private int id;
         public AddCollector()
         {
             InitializeComponent();
@@ -49,38 +49,21 @@ namespace Filatelist1
             }
             else
             {
-                id = 0;
-                if (Serial.collectorsList.Count == 0)
-                {
-                    temp = new Collector(nameTextBox.Text, countryTextBox.Text, phoneTextBox.Text, id);
-                    if (Serial.collectorsList.IsCopy(temp))
-                    {
-                        MessageBox.Show("Этот коллекционер уже существует.");
-                        return;
-                    }
-                    else
-                    {
-                        Serial.collectorsList.Add(temp);
-                        MessageBox.Show("Клиент добавлен");
-                        Serial.SaveCollector();
-                    }
-                }
+                id = Serial.collectorsList.Count;
+                temp = new Collector(nameTextBox.Text, countryTextBox.Text, phoneTextBox.Text, id);
+                if (Serial.collectorsList.IsCopy(temp))
+                  {
+                    MessageBox.Show("Этот коллекционер уже существует.");
+                    return;
+                  }
                 else
-                {
-                    id = Serial.collectorsList[Serial.collectorsList.Count - 1].Id + 1;
-                    temp = new Collector(nameTextBox.Text, countryTextBox.Text, phoneTextBox.Text, id); if (Serial.collectorsList.IsCopy(temp))
-                    {
-                        MessageBox.Show("Этот коллекционер уже существует.");
-                        return;
-                    }
-                    else
-                    {
+                  {
                         Serial.collectorsList.Add(temp);
                         MessageBox.Show("Клиент добавлен");
                         Serial.SaveCollector();
-                    }
-                }
-            }
+                  }
+                
+             }
            
                 this.ClearAll();
                 this.Close();

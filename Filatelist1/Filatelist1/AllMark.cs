@@ -30,8 +30,6 @@ namespace Filatelist1
         private void main_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 F = new Form1();
-            F.Show();
         }
 
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
