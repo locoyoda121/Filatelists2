@@ -23,15 +23,20 @@ namespace Filatelist1
             MarksGridView.Rows.Clear();
             Serial.OpenMark();
             foreach (Marka marka in Serial.marksList)
-                MarksGridView.Rows.Add(marka.Year,marka.Country, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
+                MarksGridView.Rows.Add(marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
 
         }
 
         private void main_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+            Form1 F = new Form1();
+            F.Show();
         }
 
+        private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
