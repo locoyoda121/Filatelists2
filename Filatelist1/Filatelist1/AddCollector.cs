@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Filatelist1
@@ -30,7 +31,7 @@ namespace Filatelist1
         {
            Serial.OpenCollector();
         }
-        
+
         /// <summary>
         /// Кнопка "Добавить": добавление коллекционера.
         /// </summary>
@@ -42,11 +43,18 @@ namespace Filatelist1
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
-            else if (Char.IsDigit(nameTextBox.Text[0]))
+            else if (nameTextBox.Text.Length<=1)
             {
                 MessageBox.Show("Имя не может быть одной буквой.");
                 return;
             }
+
+            else if (!IsDigits(phoneTextBox.Text) || IsDigits(countryTextBox.Text) || IsDigits(nameTextBox.Text))
+            {
+                MessageBox.Show("Неверный ввод.");
+                return;
+            }
+
             else
             {
                 id = Serial.collectorsList.Count;
@@ -64,9 +72,9 @@ namespace Filatelist1
                   }
                 
              }
-           
-                this.ClearAll();
-                this.Close();
+
+            this.ClearAll();
+            this.Close();
         }
     
         /// <summary>
@@ -100,6 +108,20 @@ namespace Filatelist1
             countryTextBox.Text = "";
             phoneTextBox.Text = "";
         }
+
+        /// <summary>
+        /// Проверка на ввод данных.
+        /// </summary>
+        /// <param name="s"></param>
+        private bool IsDigits(string s)
+        {
+            Regex pattern = new Regex(@"[0-9]");
+            if (pattern.IsMatch(s))
+                return true;
+            else
+                return false;
+        }
+
 
     }
 }

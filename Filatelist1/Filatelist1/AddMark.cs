@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 
 namespace Filatelist1
@@ -31,7 +32,6 @@ namespace Filatelist1
         {
             Serial.OpenMark();
             Serial.OpenCollector();
-            CollectorBindingSource.DataSource = Serial.collectorsList; // Привязка списка коллекционеров.
             foreach (Collector name in Serial.collectorsList)
                 collectorBox.Items.Add(name.Name);
                       
@@ -45,6 +45,11 @@ namespace Filatelist1
             if (!Check())
             {
                 MessageBox.Show("Не все поля заполнены!");
+                return;
+            }
+            else if (IsDigits(nominalBox.Text) || IsDigits(yearBox.Text) || IsDigits(tirageBox.Text)||!IsDigits(countryBox.Text))
+            {
+                 MessageBox.Show("Неверный ввод.");
                 return;
             }
 
@@ -105,9 +110,17 @@ namespace Filatelist1
             return true;
         }
 
-        private void collectorBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Проверка на ввод данных.
+        /// </summary>
+        /// <param name="s"></param>
+        private bool IsDigits(string s)
         {
-            
+            Regex pattern = new Regex(@"[0-9]");
+            if (pattern.IsMatch(s))
+                return true;
+            else
+                return false;
         }
     }
 }

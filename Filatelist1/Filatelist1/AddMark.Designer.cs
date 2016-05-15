@@ -145,7 +145,6 @@
             this.collectorBox.Name = "collectorBox";
             this.collectorBox.Size = new System.Drawing.Size(144, 21);
             this.collectorBox.TabIndex = 11;
-            this.collectorBox.SelectedIndexChanged += new System.EventHandler(this.collectorBox_SelectedIndexChanged);
             // 
             // AddButton
             // 

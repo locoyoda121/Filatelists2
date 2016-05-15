@@ -11,10 +11,6 @@ namespace Filatelist1
     [Serializable]
     class ListOfCollectors : List<Collector>
     {
-        List<Collector> collectior = new List<Collector>();
-
-        public List<Collector> Collectior { get; set; }
-        
         /// <summary>
         /// Проверка на то, если ли уже данный коллекционер в списке.
         /// </summary>
@@ -22,9 +18,9 @@ namespace Filatelist1
         /// <returns></returns>
         public bool IsCopy(Collector ic)
         {
-            foreach (Collector a in collectior)
+            foreach (Collector a in Serial.collectorsList)
             {
-                if (a.Name == ic.Name)
+                if (a.Phone == ic.Phone)
                     return true;
             }
             return false;

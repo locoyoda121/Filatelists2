@@ -37,7 +37,6 @@ namespace Filatelist1
             this.Close();
         }
                
-
         private void Form1_Load(object sender, EventArgs e)
         {
             RefreshForm();
@@ -61,15 +60,20 @@ namespace Filatelist1
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshAll();
-            if (Serial.collectorsList[listBox1.SelectedIndex].Listmarks == null)
+            if (Serial.collectorsList[listBox1.SelectedIndex].Listmarks.Count == 0)
             {
                 MessageBox.Show("У данного коллекционера еще нет марок");
             }
             else
             {
+                int sum = 0;
                 listBox2.Items.Clear();
                 foreach (Marka mark in Serial.collectorsList[listBox1.SelectedIndex].Listmarks)
-                 listBox2.Items.Add(mark.Special);
+                {
+                    listBox2.Items.Add(mark.Special);
+                    sum += Convert.ToInt32(mark.Nominal);
+                }
+                priceLabel.Text = sum.ToString();
             }
             
         }
@@ -92,6 +96,18 @@ namespace Filatelist1
             AllCollectors AC = new AllCollectors();
             AC.Show();
         }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Serial.OpenMark();
+            yearLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Year;
+            nominalLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Nominal;
+            countryLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Country;
+            tirageLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Tirage;
+            specialLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Special;
+
+        }
+
     }
 }
 

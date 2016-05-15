@@ -10,7 +10,9 @@ namespace Filatelist1
 {
     [Serializable]
     class Marka
+      
     {
+       
         public string Country { set; get; } // страна
         public string Nominal { set; get; }  // номинальная цена
         public string Year { set; get; }  // год выпуска
