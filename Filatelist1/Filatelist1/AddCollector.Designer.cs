@@ -73,6 +73,7 @@
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(195, 20);
             this.countryTextBox.TabIndex = 10;
+            this.countryTextBox.TextChanged += new System.EventHandler(this.countryTextBox_TextChanged);
             // 
             // nameTextBox
             // 
@@ -82,6 +83,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(195, 20);
             this.nameTextBox.TabIndex = 11;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // phoneTextBox
             // 
@@ -91,6 +93,7 @@
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(195, 20);
             this.phoneTextBox.TabIndex = 12;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.phoneTextBox_TextChanged);
             // 
             // addButton
             // 

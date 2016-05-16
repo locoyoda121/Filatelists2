@@ -122,6 +122,31 @@ namespace Filatelist1
                 return false;
         }
 
+        private void countryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(countryTextBox.Text, "^[a-zA-Zа-яА-Я]*$"))
+            {
+                countryTextBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только буквы.");
+            }
+        }
 
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(nameTextBox.Text, "^[a-zA-Zа-яА-Я]*$"))
+            {
+                nameTextBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только буквы.");
+            }
+        }
+
+        private void phoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(phoneTextBox.Text, "^[0-9]*$"))
+            {
+                phoneTextBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только цифры.");
+            }
+        }
     }
 }

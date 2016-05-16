@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 
+
 namespace Filatelist1
 {
     [Serializable]
@@ -47,12 +48,12 @@ namespace Filatelist1
                 MessageBox.Show("Не все поля заполнены!");
                 return;
             }
-            else if (IsDigits(nominalBox.Text) || IsDigits(yearBox.Text) || IsDigits(tirageBox.Text)||!IsDigits(countryBox.Text))
+            else if (!CheckYear())
             {
-                 MessageBox.Show("Неверный ввод.");
+                MessageBox.Show("Введена неверная дата");
                 return;
             }
-
+                      
             else
             {
                 Serial.OpenCollector(); 
@@ -111,16 +112,55 @@ namespace Filatelist1
         }
 
         /// <summary>
-        /// Проверка на ввод данных.
+        /// Проверка на вводимую дату.
         /// </summary>
-        /// <param name="s"></param>
-        private bool IsDigits(string s)
+        /// <returns></returns>
+        private bool CheckYear()
         {
-            Regex pattern = new Regex(@"[0-9]");
-            if (pattern.IsMatch(s))
-                return true;
-            else
+            if (Convert.ToInt32(yearBox.Text) > DateTime.Now.Year || Convert.ToInt32(yearBox.Text)<0)
+            {
+                yearBox.Text = string.Empty;
                 return false;
+            }
+            else
+                return true;
+        }     
+        
+        private void nominalBox_TextChanged(object sender, EventArgs e)
+        {          
+            if (!System.Text.RegularExpressions.Regex.IsMatch(nominalBox.Text, "^[0-9]*$"))
+            {
+                nominalBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только цифры.");
+            }
+        }
+
+        private void countryBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(countryBox.Text, "^[a-zA-Zа-яА-Я]*$"))
+            {
+                countryBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только буквы.");
+            }
+        }
+
+        private void tirageBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(tirageBox.Text, "^[0-9]*$"))
+            {
+                tirageBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только цифры.");
+            }
+        }
+
+        private void yearBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(yearBox.Text, "^[0-9]*$"))
+            {
+                yearBox.Text = string.Empty;
+                MessageBox.Show("Можно вводить только цифры.");
+            }
+
         }
     }
 }

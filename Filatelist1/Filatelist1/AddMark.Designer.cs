@@ -98,6 +98,7 @@
             this.countryBox.Name = "countryBox";
             this.countryBox.Size = new System.Drawing.Size(144, 20);
             this.countryBox.TabIndex = 5;
+            this.countryBox.TextChanged += new System.EventHandler(this.countryBox_TextChanged);
             // 
             // nominalBox
             // 
@@ -105,6 +106,7 @@
             this.nominalBox.Name = "nominalBox";
             this.nominalBox.Size = new System.Drawing.Size(144, 20);
             this.nominalBox.TabIndex = 6;
+            this.nominalBox.TextChanged += new System.EventHandler(this.nominalBox_TextChanged);
             // 
             // tirageBox
             // 
@@ -112,6 +114,7 @@
             this.tirageBox.Name = "tirageBox";
             this.tirageBox.Size = new System.Drawing.Size(144, 20);
             this.tirageBox.TabIndex = 7;
+            this.tirageBox.TextChanged += new System.EventHandler(this.tirageBox_TextChanged);
             // 
             // yearBox
             // 
@@ -119,6 +122,7 @@
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(144, 20);
             this.yearBox.TabIndex = 8;
+            this.yearBox.TextChanged += new System.EventHandler(this.yearBox_TextChanged);
             // 
             // specialBox
             // 
@@ -165,10 +169,6 @@
             this.CloseButton.Text = "Отмена";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // CollectorBindingSource
-            // 
-        //    this.CollectorBindingSource.DataSource = typeof(Filatelist1.Collector);
             // 
             // AddMark
             // 
