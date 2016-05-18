@@ -108,6 +108,11 @@ namespace Filatelist1
 
         }
 
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About Ab = new About();
+            Ab.Show();
+        }
     }
 }
 

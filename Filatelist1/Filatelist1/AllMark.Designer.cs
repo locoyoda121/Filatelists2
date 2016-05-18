@@ -36,7 +36,15 @@
             this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.main = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textbox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mintextBox = new System.Windows.Forms.TextBox();
+            this.maxtextBox = new System.Windows.Forms.TextBox();
             this.searchBox = new System.Windows.Forms.ComboBox();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -49,10 +57,11 @@
             this.nominal,
             this.tirage,
             this.special,
-            this.collector});
+            this.collector,
+            this.country});
             this.MarksGridView.Location = new System.Drawing.Point(12, 149);
             this.MarksGridView.Name = "MarksGridView";
-            this.MarksGridView.Size = new System.Drawing.Size(547, 150);
+            this.MarksGridView.Size = new System.Drawing.Size(652, 201);
             this.MarksGridView.TabIndex = 0;
             // 
             // year
@@ -87,7 +96,7 @@
             // 
             // main
             // 
-            this.main.Location = new System.Drawing.Point(450, 305);
+            this.main.Location = new System.Drawing.Point(555, 356);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(109, 39);
             this.main.TabIndex = 1;
@@ -97,28 +106,110 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textbox);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.mintextBox);
+            this.groupBox1.Controls.Add(this.maxtextBox);
             this.groupBox1.Controls.Add(this.searchBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 116);
+            this.groupBox1.Size = new System.Drawing.Size(652, 116);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
             // 
+            // textbox
+            // 
+            this.textbox.Location = new System.Drawing.Point(158, 29);
+            this.textbox.Multiline = true;
+            this.textbox.Name = "textbox";
+            this.textbox.Size = new System.Drawing.Size(326, 38);
+            this.textbox.TabIndex = 6;
+            this.textbox.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(571, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Найти";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "C";
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(133, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "по";
+            this.label1.Visible = false;
+            // 
+            // mintextBox
+            // 
+            this.mintextBox.Location = new System.Drawing.Point(26, 73);
+            this.mintextBox.Name = "mintextBox";
+            this.mintextBox.Size = new System.Drawing.Size(100, 20);
+            this.mintextBox.TabIndex = 2;
+            this.mintextBox.Visible = false;
+            this.mintextBox.TextChanged += new System.EventHandler(this.mintextBox_TextChanged);
+            this.mintextBox.VisibleChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
+            // 
+            // maxtextBox
+            // 
+            this.maxtextBox.Location = new System.Drawing.Point(158, 73);
+            this.maxtextBox.Name = "maxtextBox";
+            this.maxtextBox.Size = new System.Drawing.Size(100, 20);
+            this.maxtextBox.TabIndex = 1;
+            this.maxtextBox.Visible = false;
+            this.maxtextBox.TextChanged += new System.EventHandler(this.maxtextBox_TextChanged);
+            // 
             // searchBox
             // 
             this.searchBox.FormattingEnabled = true;
-            this.searchBox.Location = new System.Drawing.Point(24, 35);
+            this.searchBox.Location = new System.Drawing.Point(6, 29);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(121, 21);
             this.searchBox.TabIndex = 0;
             this.searchBox.SelectedIndexChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 356);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Показать все";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AllMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 356);
+            this.ClientSize = new System.Drawing.Size(679, 407);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.main);
             this.Controls.Add(this.MarksGridView);
@@ -126,6 +217,7 @@
             this.Text = "AllMark";
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +232,13 @@
         private System.Windows.Forms.Button main;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox searchBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox mintextBox;
+        private System.Windows.Forms.TextBox maxtextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn country;
+        private System.Windows.Forms.Button button2;
     }
 }

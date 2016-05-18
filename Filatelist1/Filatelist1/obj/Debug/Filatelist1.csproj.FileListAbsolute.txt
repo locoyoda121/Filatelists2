@@ -11,3 +11,4 @@ C:\Users\Loco\documents\visual studio 2015\Projects\Filatelist1\Filatelist1\obj\
 C:\Users\Loco\documents\visual studio 2015\Projects\Filatelist1\Filatelist1\obj\Debug\Filatelist1.pdb
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelist1\Filatelist1\obj\Debug\Filatelist1.AllMark.resources
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelist1\Filatelist1\obj\Debug\Filatelist1.AllCollectors.resources
+C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelist1\Filatelist1\obj\Debug\Filatelist1.About.resources
