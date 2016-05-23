@@ -48,13 +48,7 @@ namespace Filatelist1
                 MessageBox.Show("Имя не может быть одной буквой.");
                 return;
             }
-
-            else if (!IsDigits(phoneTextBox.Text) || IsDigits(countryTextBox.Text) || IsDigits(nameTextBox.Text))
-            {
-                MessageBox.Show("Неверный ввод.");
-                return;
-            }
-
+              
             else
             {
                 id = Serial.collectorsList.Count;
@@ -108,20 +102,7 @@ namespace Filatelist1
             countryTextBox.Text = "";
             phoneTextBox.Text = "";
         }
-
-        /// <summary>
-        /// Проверка на ввод данных.
-        /// </summary>
-        /// <param name="s"></param>
-        private bool IsDigits(string s)
-        {
-            Regex pattern = new Regex(@"[0-9]");
-            if (pattern.IsMatch(s))
-                return true;
-            else
-                return false;
-        }
-
+            
         private void countryTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(countryTextBox.Text, "^[a-zA-Zа-яА-Я]*$"))

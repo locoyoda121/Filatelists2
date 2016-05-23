@@ -34,6 +34,7 @@
             this.tirage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.special = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.main = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textbox = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.mintextBox = new System.Windows.Forms.TextBox();
             this.maxtextBox = new System.Windows.Forms.TextBox();
             this.searchBox = new System.Windows.Forms.ComboBox();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,6 +93,12 @@
             this.collector.HeaderText = "Коллекционер";
             this.collector.Name = "collector";
             this.collector.ReadOnly = true;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
             // 
             // main
             // 
@@ -187,12 +193,6 @@
             this.searchBox.TabIndex = 0;
             this.searchBox.SelectedIndexChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
             // 
             // button2
             // 
