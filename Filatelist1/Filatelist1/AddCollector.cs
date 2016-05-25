@@ -19,7 +19,8 @@ namespace Filatelist1
         private int id;
         public AddCollector()
         {
-            InitializeComponent();
+           InitializeComponent();
+           
         }
                 
         /// <summary>
@@ -66,9 +67,10 @@ namespace Filatelist1
                   }
                 
              }
-
             this.ClearAll();
+            
             this.Close();
+                       
         }
     
         /// <summary>

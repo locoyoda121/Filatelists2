@@ -39,6 +39,7 @@
             this.searchtextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.ComboBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.collectorGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             this.collectorGridView.Size = new System.Drawing.Size(450, 150);
             this.collectorGridView.TabIndex = 0;
             this.collectorGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.collectorGridView_CellEndEdit);
+            this.collectorGridView.Click += new System.EventHandler(this.collectorGridView_Click);
             // 
             // id
             // 
@@ -92,7 +94,7 @@
             // 
             // savebutton
             // 
-            this.savebutton.Location = new System.Drawing.Point(12, 283);
+            this.savebutton.Location = new System.Drawing.Point(237, 283);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(110, 39);
             this.savebutton.TabIndex = 3;
@@ -140,11 +142,23 @@
             this.searchBox.TabIndex = 1;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(12, 283);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(110, 39);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Удалить коллекционера";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // AllCollectors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 334);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.main);
@@ -171,5 +185,6 @@
         private System.Windows.Forms.ComboBox searchBox;
         private System.Windows.Forms.TextBox searchtextBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

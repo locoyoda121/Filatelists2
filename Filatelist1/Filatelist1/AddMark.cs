@@ -34,9 +34,7 @@ namespace Filatelist1
             Serial.OpenMark();
             Serial.OpenCollector();
             foreach (Collector name in Serial.collectorsList)
-                collectorBox.Items.Add(name.Name);
-                      
-            collectorBox.SelectedIndex = -1;
+                collectorBox.Items.Add(name.Name);       
         }
 
 
@@ -71,6 +69,7 @@ namespace Filatelist1
             Serial.SaveMark();
             this.ClearAll();
             this.Close();
+            Form1.ActiveForm.Refresh();
         }
 
         /// <summary>

@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.MarksGridView = new System.Windows.Forms.DataGridView();
-            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tirage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.special = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.main = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textbox = new System.Windows.Forms.TextBox();
@@ -45,6 +39,14 @@
             this.maxtextBox = new System.Windows.Forms.TextBox();
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tirage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.special = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -53,56 +55,22 @@
             // 
             this.MarksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MarksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.country,
             this.year,
             this.nominal,
             this.tirage,
             this.special,
-            this.collector,
-            this.country});
+            this.collector});
             this.MarksGridView.Location = new System.Drawing.Point(12, 149);
             this.MarksGridView.Name = "MarksGridView";
-            this.MarksGridView.Size = new System.Drawing.Size(652, 201);
+            this.MarksGridView.Size = new System.Drawing.Size(750, 201);
             this.MarksGridView.TabIndex = 0;
-            // 
-            // year
-            // 
-            this.year.HeaderText = "Год издания";
-            this.year.Name = "year";
-            this.year.ReadOnly = true;
-            // 
-            // nominal
-            // 
-            this.nominal.HeaderText = "Стоимость";
-            this.nominal.Name = "nominal";
-            this.nominal.ReadOnly = true;
-            // 
-            // tirage
-            // 
-            this.tirage.HeaderText = "Тираж";
-            this.tirage.Name = "tirage";
-            this.tirage.ReadOnly = true;
-            // 
-            // special
-            // 
-            this.special.HeaderText = "Тема";
-            this.special.Name = "special";
-            this.special.ReadOnly = true;
-            // 
-            // collector
-            // 
-            this.collector.HeaderText = "Коллекционер";
-            this.collector.Name = "collector";
-            this.collector.ReadOnly = true;
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
+            this.MarksGridView.Click += new System.EventHandler(this.MarksGridView_Click);
             // 
             // main
             // 
-            this.main.Location = new System.Drawing.Point(555, 356);
+            this.main.Location = new System.Drawing.Point(653, 356);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(109, 39);
             this.main.TabIndex = 1;
@@ -121,7 +89,7 @@
             this.groupBox1.Controls.Add(this.searchBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(652, 116);
+            this.groupBox1.Size = new System.Drawing.Size(750, 116);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
@@ -131,13 +99,13 @@
             this.textbox.Location = new System.Drawing.Point(158, 29);
             this.textbox.Multiline = true;
             this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(326, 38);
+            this.textbox.Size = new System.Drawing.Size(558, 38);
             this.textbox.TabIndex = 6;
             this.textbox.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(571, 87);
+            this.button1.Location = new System.Drawing.Point(669, 87);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -196,7 +164,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 356);
+            this.button2.Location = new System.Drawing.Point(538, 356);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 39);
             this.button2.TabIndex = 3;
@@ -204,11 +172,64 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(12, 356);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 39);
+            this.deleteButton.TabIndex = 4;
+            this.deleteButton.Text = "Удалить марку";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Номер марки";
+            this.id.Name = "id";
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // year
+            // 
+            this.year.HeaderText = "Год издания";
+            this.year.Name = "year";
+            this.year.ReadOnly = true;
+            // 
+            // nominal
+            // 
+            this.nominal.HeaderText = "Стоимость";
+            this.nominal.Name = "nominal";
+            this.nominal.ReadOnly = true;
+            // 
+            // tirage
+            // 
+            this.tirage.HeaderText = "Тираж";
+            this.tirage.Name = "tirage";
+            this.tirage.ReadOnly = true;
+            // 
+            // special
+            // 
+            this.special.HeaderText = "Тема";
+            this.special.Name = "special";
+            this.special.ReadOnly = true;
+            // 
+            // collector
+            // 
+            this.collector.HeaderText = "Коллекционер";
+            this.collector.Name = "collector";
+            this.collector.ReadOnly = true;
+            // 
             // AllMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 407);
+            this.ClientSize = new System.Drawing.Size(774, 407);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.main);
@@ -224,11 +245,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView MarksGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn collector;
-        private System.Windows.Forms.DataGridViewTextBoxColumn special;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tirage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nominal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn year;
         private System.Windows.Forms.Button main;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox searchBox;
@@ -238,7 +254,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textbox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn country;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn collector;
+        private System.Windows.Forms.DataGridViewTextBoxColumn special;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tirage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nominal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn country;
     }
 }

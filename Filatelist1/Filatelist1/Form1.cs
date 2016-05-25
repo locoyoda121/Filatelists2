@@ -13,13 +13,13 @@ namespace Filatelist1
     [Serializable]
     public partial class Form1 : Form
     {
-               
+
 
         public Form1()
         {
             InitializeComponent();
         }
-       
+
         private void коллекционераToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCollector AC = new AddCollector();
@@ -36,9 +36,10 @@ namespace Filatelist1
         {
             this.Close();
         }
-               
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Refresh();
             RefreshForm();
         }
 
@@ -50,33 +51,44 @@ namespace Filatelist1
 
         public void RefreshForm()
         {
-           
+
             RefreshAll();
             foreach (Collector name in Serial.collectorsList)
                 listBox1.Items.Add(name.Name);
-           
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshAll();
-            if (Serial.collectorsList[listBox1.SelectedIndex].Listmarks.Count == 0)
-            {
-                MessageBox.Show("У данного коллекционера еще нет марок");
-            }
-            else
-            {
-                int sum = 0;
-                listBox2.Items.Clear();
-                foreach (Marka mark in Serial.collectorsList[listBox1.SelectedIndex].Listmarks)
-                {
-                    listBox2.Items.Add(mark.Special);
-                    sum += Convert.ToInt32(mark.Nominal);
-                }
-                priceLabel.Text = sum.ToString();
-            }
             
+            RefreshAll();
+            listBox2.Items.Clear();
+            ClearLabel();
+
+            try {
+
+                if (Serial.collectorsList[listBox1.SelectedIndex].Listmarks.Count == 0)
+                {
+                    MessageBox.Show("У данного коллекционера еще нет марок");
+                }
+                else
+                {
+                    int sum = 0;
+
+                    foreach (Marka mark in Serial.collectorsList[listBox1.SelectedIndex].Listmarks)
+                    {
+                        listBox2.Items.Add(mark.Special);
+                        sum += Convert.ToInt32(mark.Nominal);
+                    }
+                    priceLabel.Text = sum.ToString();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
+              
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -99,13 +111,18 @@ namespace Filatelist1
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Serial.OpenMark();
-            yearLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Year;
-            nominalLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Nominal;
-            countryLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Country;
-            tirageLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Tirage;
-            specialLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Special;
-
+            RefreshAll();
+           try {
+                yearLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Year;
+                nominalLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Nominal;
+                countryLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Country;
+                tirageLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Tirage;
+                specialLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Special;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                ClearLabel();
+            }
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,6 +130,15 @@ namespace Filatelist1
             About Ab = new About();
             Ab.Show();
         }
+         
+        private void ClearLabel()
+        {
+            yearLabel.Text = "";
+            nominalLabel.Text = "";
+            countryLabel.Text = "";
+            tirageLabel.Text = "";
+            specialLabel.Text = "";
+        }       
     }
 }
 

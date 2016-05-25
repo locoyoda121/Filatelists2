@@ -6,8 +6,13 @@ using System.Windows.Forms;
 
 namespace Filatelist1
 {
-    static class Program
+    class Program
     {
+
+
+        public Form form1 = new Form();
+
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -18,5 +23,6 @@ namespace Filatelist1
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+           
     }
 }

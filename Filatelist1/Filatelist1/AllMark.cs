@@ -27,7 +27,7 @@ namespace Filatelist1
             MarksGridView.Rows.Clear();
             Serial.OpenMark();
             foreach (Marka marka in Serial.marksList)
-                MarksGridView.Rows.Add(marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name, marka.Country);
+                MarksGridView.Rows.Add(marka.Id, marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
 
             searchBox.Items.Add("По году");
             searchBox.Items.Add("По стоимости");
@@ -123,7 +123,7 @@ namespace Filatelist1
         {
             MarksGridView.Rows.Clear();
             foreach (Marka marka in a)
-                MarksGridView.Rows.Add(marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
+                MarksGridView.Rows.Add(marka.Id,marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace Filatelist1
                         searchList = Serial.marksList.Where(mark => Convert.ToInt32(mark.Tirage) >= Convert.ToInt32(mintextBox.Text) && Convert.ToInt32(mark.Tirage) <= Convert.ToInt32(maxtextBox.Text));
                         return searchList;
                     default:
-                        return null; //searchList.DefaultIfEmpty();
+                        return null;
 
                 }
             }
@@ -194,6 +194,20 @@ namespace Filatelist1
         private void button2_Click(object sender, EventArgs e)
         {
             FillGridView();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            Serial.OpenMark();
+            DataGridViewRow selectedRow = MarksGridView.Rows[MarksGridView.SelectedCells[0].RowIndex];
+            Serial.marksList.Remove(Serial.marksList.Find(mark => mark.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
+            Serial.SaveMark();
+            FillGridView();
+        }
+
+        private void MarksGridView_Click(object sender, EventArgs e)
+        {
+            deleteButton.Visible = true;
         }
     }
 }

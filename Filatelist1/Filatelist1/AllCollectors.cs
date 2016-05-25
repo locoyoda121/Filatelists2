@@ -36,6 +36,7 @@ namespace Filatelist1
         {
             this.Close();
         }
+
         private void collectorGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -117,6 +118,22 @@ namespace Filatelist1
             return searchList;
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            Serial.OpenCollector();
+            DataGridViewRow selectedRow = collectorGridView.Rows[collectorGridView.SelectedCells[0].RowIndex];
+            Serial.collectorsList.Remove(Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
+            var delmark = Serial.marksList.Find(mark => mark.Coll == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
+            Serial.marksList.Remove(delmark);
+            Serial.SaveCollector();
+            Serial.SaveMark();
+            FillGridView();
+        }
+
+        private void collectorGridView_Click(object sender, EventArgs e)
+        {
+            deleteButton.Visible = true;
+        }
     }
 }
 
