@@ -14,15 +14,15 @@ namespace Filatelist1
     [Serializable]
     public partial class AddCollector : Form
     {
-       
-        Collector temp;
-        private int id;
+
+        Collector temp;    // буферная переменная
+        private int id;    // номер коллекционера в общем списке
+
         public AddCollector()
         {
-           InitializeComponent();
-           
+            InitializeComponent();
         }
-                
+
         /// <summary>
         /// Запуск формы.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Filatelist1
         /// <param name="e"></param>
         private void AddCollector_Load(object sender, EventArgs e)
         {
-           Serial.OpenCollector();
+            Serial.OpenCollector();
         }
 
         /// <summary>
@@ -44,35 +44,35 @@ namespace Filatelist1
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
-            else if (nameTextBox.Text.Length<=1)
+            else if (nameTextBox.Text.Length <= 1)
             {
                 MessageBox.Show("Имя не может быть одной буквой.");
                 return;
             }
-              
+
             else
             {
                 id = Serial.collectorsList.Count;
                 temp = new Collector(nameTextBox.Text, countryTextBox.Text, phoneTextBox.Text, id);
                 if (Serial.collectorsList.IsCopy(temp))
-                  {
+                {
                     MessageBox.Show("Этот коллекционер уже существует.");
                     return;
-                  }
+                }
                 else
-                  {
-                        Serial.collectorsList.Add(temp);
-                        MessageBox.Show("Клиент добавлен");
-                        Serial.SaveCollector();
-                  }
-                
-             }
+                {
+                    Serial.collectorsList.Add(temp);
+                    MessageBox.Show("Клиент добавлен");
+                    Serial.SaveCollector();
+                }
+
+            }
             this.ClearAll();
-            
+
             this.Close();
-                       
+
         }
-    
+
         /// <summary>
         /// Кнопка "Отмена".
         /// </summary>
@@ -86,7 +86,6 @@ namespace Filatelist1
         /// <summary>
         /// Проверка на то, заполнены ли поля.
         /// </summary>
-        /// <returns></returns>
         private bool Check()
         {
             if (String.IsNullOrWhiteSpace(nameTextBox.Text)) return false;
@@ -104,7 +103,12 @@ namespace Filatelist1
             countryTextBox.Text = "";
             phoneTextBox.Text = "";
         }
-            
+
+        /// <summary>
+        /// Проверка правильности ввода в графе "Страна".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void countryTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(countryTextBox.Text, "^[a-zA-Zа-яА-Я]*$"))
@@ -114,6 +118,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Имя".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(nameTextBox.Text, "^[a-zA-Zа-яА-Я]*$"))
@@ -123,6 +132,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Телефон".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(phoneTextBox.Text, "^[0-9]*$"))

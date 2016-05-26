@@ -12,16 +12,20 @@ namespace Filatelist1
 {
     public partial class AllMark : Form
     {
-        private int n;
+        private int n;            //определение критерия поиска
 
-
+        /// <summary>
+        /// Открытие и заполнение таблицы.
+        /// </summary>
         public AllMark()
         {
             InitializeComponent();
             FillGridView();
-
         }
 
+        /// <summary>
+        /// Заполнение данными таблицу и добавление категории поиска.
+        /// </summary>
         public void FillGridView()
         {
             MarksGridView.Rows.Clear();
@@ -38,11 +42,21 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Кнопка "На главную".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void main_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Определение критерия поиска.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -55,6 +69,11 @@ namespace Filatelist1
             if (searchBox.Text == "По стране") n = 6;
         }
 
+        /// <summary>
+        /// Открытие и скрытие полей по типу критерия поиска.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (n)
@@ -86,6 +105,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Минимальное значение".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mintextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(mintextBox.Text, "^[0-9]*$"))
@@ -95,6 +119,9 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Открытие полей для поиска числовых значений.
+        /// </summary>
         private void VisDigits()
         {
             label1.Visible = true;
@@ -102,6 +129,10 @@ namespace Filatelist1
             mintextBox.Visible = true;
             maxtextBox.Visible = true;
         }
+
+        /// <summary>
+        /// Скрытие полей для поиска числовых значений.
+        /// </summary>
         private void NonVisDigits()
         {
             label1.Visible = false;
@@ -110,6 +141,11 @@ namespace Filatelist1
             maxtextBox.Visible = false;
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Максимальное значение".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void maxtextBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(maxtextBox.Text, "^[0-9]*$"))
@@ -119,6 +155,10 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Заполнение данными таблицу после поиска.
+        /// </summary>
+        /// /// <param name="a"></param>
         private void FillGridViewSearch(IEnumerable<Marka> a)
         {
             MarksGridView.Rows.Clear();
@@ -126,6 +166,11 @@ namespace Filatelist1
                 MarksGridView.Rows.Add(marka.Id, marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
         }
 
+        /// <summary>
+        /// Кнопка "Найти".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (n == 4 || n == 5 || n == 6)
@@ -139,6 +184,9 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Поиск по текстовым значениям.
+        /// </summary>
         private ListOfMarks SearchText()
         {
             ListOfMarks searchList = new ListOfMarks();
@@ -163,6 +211,9 @@ namespace Filatelist1
             return searchList;
         }
 
+        /// <summary>
+        /// Поиск по цифровым значениям.
+        /// </summary>
         private IEnumerable<Marka> SearchDigits()
         {
 
@@ -191,23 +242,38 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Кнопка "Показать все".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             FillGridView();
         }
 
+        /// <summary>
+        /// Кнопка "Удалить марку".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteButton_Click(object sender, EventArgs e)
         {
             Serial.OpenMark();
             Serial.OpenCollector();
             DataGridViewRow selectedRow = MarksGridView.Rows[MarksGridView.SelectedCells[0].RowIndex];
-            
+
             Serial.marksList.Remove(Serial.marksList.Find(mark => mark.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
             Serial.SaveMark();
             Serial.SaveCollector();
             FillGridView();
         }
 
+        /// <summary>
+        /// Появление кнопки "Удалить марку" после нажатия на ячейку марки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MarksGridView_Click(object sender, EventArgs e)
         {
             deleteButton.Visible = true;

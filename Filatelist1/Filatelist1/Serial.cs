@@ -12,6 +12,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Filatelist1
 {
+    /// <summary>
+    /// Класс для сериализации списков марок и коллекционеров
+    /// </summary>
+
     [Serializable]
     class Serial
     {

@@ -8,6 +8,10 @@ using System.IO;
 
 namespace Filatelist1
 {
+
+    /// <summary>
+    /// Класс, с помощью которого будет осуществляться работа с коллекционерами.
+    /// </summary>
     [Serializable]
     class Collector
     {

@@ -16,9 +16,9 @@ namespace Filatelist1
     [Serializable]
     public partial class AddMark : Form
     {
-        Marka temp;
-        private int id;
-               
+        Marka temp;         //буферная переменная
+        private int id;     //номер марки в общем списке
+
         public AddMark()
         {
             InitializeComponent();
@@ -34,11 +34,16 @@ namespace Filatelist1
             Serial.OpenMark();
             Serial.OpenCollector();
             foreach (Collector name in Serial.collectorsList)
-                collectorBox.Items.Add(name.Name);       
+            {
+                collectorBox.Items.Add(name.Name);
+            }
         }
 
-
-
+        /// <summary>
+        /// Кнопка "Добавить марку".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             if (!Check())
@@ -51,10 +56,10 @@ namespace Filatelist1
                 MessageBox.Show("Введена неверная дата");
                 return;
             }
-                      
+
             else
             {
-                Serial.OpenCollector(); 
+                Serial.OpenCollector();
                 Serial.OpenMark();
                 id = Serial.marksList.Count;
                 temp = new Marka(countryBox.Text, nominalBox.Text, yearBox.Text, tirageBox.Text,
@@ -62,7 +67,7 @@ namespace Filatelist1
                 Serial.marksList.Add(temp);
                 Serial.collectorsList[Serial.collectorsList[collectorBox.SelectedIndex].Id].Listmarks.Add(temp);
                 MessageBox.Show("Марка добавлена");
-                
+
             }
 
             Serial.SaveCollector();
@@ -83,7 +88,7 @@ namespace Filatelist1
         }
 
         /// <summary>
-        /// Оччистка всех полей.
+        /// Очистка всех полей.
         /// </summary>
         private void ClearAll()
         {
@@ -111,22 +116,27 @@ namespace Filatelist1
         }
 
         /// <summary>
-        /// Проверка на вводимую дату.
+        /// Проверка на правильность вводимой даты.
         /// </summary>
         /// <returns></returns>
         private bool CheckYear()
         {
-            if (Convert.ToInt32(yearBox.Text) > DateTime.Now.Year || Convert.ToInt32(yearBox.Text)<0)
+            if (Convert.ToInt32(yearBox.Text) > DateTime.Now.Year || Convert.ToInt32(yearBox.Text) < 0)
             {
                 yearBox.Text = string.Empty;
                 return false;
             }
             else
                 return true;
-        }     
-        
+        }
+
+        /// <summary>
+        /// Проверка правильности ввода в графе "Стоимость".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nominalBox_TextChanged(object sender, EventArgs e)
-        {          
+        {
             if (!System.Text.RegularExpressions.Regex.IsMatch(nominalBox.Text, "^[0-9]*$"))
             {
                 nominalBox.Text = string.Empty;
@@ -134,6 +144,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Страна".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void countryBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(countryBox.Text, "^[a-zA-Zа-яА-Я]*$"))
@@ -143,6 +158,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Тираж".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tirageBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(tirageBox.Text, "^[0-9]*$"))
@@ -152,6 +172,11 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Проверка правильности ввода в графе "Год".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void yearBox_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(yearBox.Text, "^[0-9]*$"))

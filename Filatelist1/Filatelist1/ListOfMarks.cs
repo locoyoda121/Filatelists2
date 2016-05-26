@@ -8,6 +8,10 @@ using System.IO;
 
 namespace Filatelist1
 {
+    /// <summary>
+    /// Класс, с помощью которого совершается управление списком марок.
+    /// </summary>
+
     [Serializable]
     class ListOfMarks : List<Marka>
     {

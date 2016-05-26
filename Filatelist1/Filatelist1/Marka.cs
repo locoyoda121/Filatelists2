@@ -8,6 +8,11 @@ using System.IO;
 
 namespace Filatelist1
 {
+
+    /// <summary>
+    /// Класс, с помощью которого будет осуществляться работа с марками.
+    /// </summary>
+
     [Serializable]
     class Marka
 

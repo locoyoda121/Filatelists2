@@ -12,14 +12,20 @@ namespace Filatelist1
 {
     public partial class AllCollectors : Form
     {
+        private int n;      //определение критерия поиска
 
-        private int n;
+        /// <summary>
+        /// Открытие и заполнение таблицы.
+        /// </summary>
         public AllCollectors()
         {
             InitializeComponent();
             FillGridView();
         }
 
+        /// <summary>
+        /// Заполнение данными таблицу и добавление категории поиска.
+        /// </summary>
         public void FillGridView()
         {
             collectorGridView.Rows.Clear();
@@ -32,11 +38,21 @@ namespace Filatelist1
             searchBox.Items.Add("По телефону");
         }
 
+        /// <summary>
+        /// Кнопка "На главную".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void main_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Редактирование телефона коллекционера.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void collectorGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -69,11 +85,21 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Кнопка "Сохранить изменения".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savebutton_Click(object sender, EventArgs e)
         {
             Serial.SaveCollector();
         }
 
+        /// <summary>
+        /// Определение критерия поиска.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
             if (searchBox.Text == "По стране") n = 1;
@@ -82,6 +108,10 @@ namespace Filatelist1
             searchtextBox.Visible = true;
         }
 
+        /// <summary>
+        /// Заполнение данными таблицу после поиска.
+        /// </summary>
+        /// /// <param name="a"></param>
         private void FillGridViewSearch(IEnumerable<Collector> a)
         {
             collectorGridView.Rows.Clear();
@@ -89,11 +119,19 @@ namespace Filatelist1
                 collectorGridView.Rows.Add(coll.Id, coll.Name, coll.Country, coll.Phone);
         }
 
+        /// <summary>
+        /// Кнопка "Поиск".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchButton_Click(object sender, EventArgs e)
         {
             FillGridViewSearch(SearchText());
         }
 
+        /// <summary>
+        /// Поиск.
+        /// </summary>
         private ListOfCollectors SearchText()
         {
             ListOfCollectors searchList = new ListOfCollectors();
@@ -118,6 +156,11 @@ namespace Filatelist1
             return searchList;
         }
 
+        /// <summary>
+        /// Кнопка "Удалить коллекционера".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteButton_Click(object sender, EventArgs e)
         {
 
@@ -127,12 +170,12 @@ namespace Filatelist1
 
             foreach (Marka mark in Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks)
             {
-                    Serial.marksList.Remove(Serial.marksList.Find(marka=>marka.Coll.Name == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Name));
+                Serial.marksList.Remove(Serial.marksList.Find(marka => marka.Coll.Name == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Name));
             }
 
             Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks.Clear();
             Serial.collectorsList.Remove(Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
-            
+
             Serial.SaveCollector();
             Serial.SaveMark();
             FillGridView();
@@ -140,6 +183,11 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Появление кнопки "Удалить коллекционера" после нажатия на ячейку коллекционера.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void collectorGridView_Click(object sender, EventArgs e)
         {
             deleteButton.Visible = true;

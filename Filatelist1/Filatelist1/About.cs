@@ -17,8 +17,13 @@ namespace Filatelist1
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку "На главную", котороя закрывает данное окно
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
-        {            
+        {
             this.Close();
         }
     }

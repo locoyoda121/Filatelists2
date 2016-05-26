@@ -14,24 +14,38 @@ namespace Filatelist1
     public partial class Form1 : Form
     {
 
-
         public Form1()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Кнопка меню "Добавить..." -> "Коллекционера". Открывает окно добавления коллекционера.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void коллекционераToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCollector AC = new AddCollector();
             AC.Show();
         }
 
+        /// <summary>
+        /// Кнопка меню "Добавить..." -> "Марку". Открывает окно добавления марки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void маркуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddMark AM = new AddMark();
             AM.Show();
         }
 
+        /// <summary>
+        /// Кнопка меню "Выход".Закрывает программу.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,12 +57,18 @@ namespace Filatelist1
             RefreshForm();
         }
 
+        /// <summary>
+        /// Обновление списков марок и коллекционеров.
+        /// </summary>
         private void RefreshAll()
         {
             Serial.OpenMark();
             Serial.OpenCollector();
         }
 
+        /// <summary>
+        /// Обновление/заполнение списка коллекционеров в главном меню.
+        /// </summary>
         public void RefreshForm()
         {
 
@@ -59,14 +79,20 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Появление списка марок в listBox2, при выборе коллекционера в listBox1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             RefreshAll();
             listBox2.Items.Clear();
             ClearLabel();
 
-            try {
+            try
+            {
 
                 if (Serial.collectorsList[listBox1.SelectedIndex].Listmarks.Count == 0)
                 {
@@ -90,12 +116,22 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Обновление списка коллекционеров в главном меню.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             RefreshForm();
         }
 
+        /// <summary>
+        /// Кнопка меню "Марки". Открывает окно общего списка марок.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void маркиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AllMark AM = new AllMark();
@@ -103,16 +139,27 @@ namespace Filatelist1
 
         }
 
+        /// <summary>
+        /// Кнопка меню "Коллекционеры". Открывает окно общего списка коллекционеров.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void коллекционерыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AllCollectors AC = new AllCollectors();
             AC.Show();
         }
 
+        /// <summary>
+        /// Появление информации о марке, при выборе марки в listBox2.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshAll();
-           try {
+            try
+            {
                 yearLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Year;
                 nominalLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Nominal;
                 countryLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Country;
@@ -126,12 +173,20 @@ namespace Filatelist1
             }
         }
 
+        /// <summary>
+        /// Кнопка меню "О программе...". Открывает окно информации про программу.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About Ab = new About();
             Ab.Show();
         }
-         
+
+        /// <summary>
+        /// Очистка полей.
+        /// </summary>
         private void ClearLabel()
         {
             yearLabel.Text = "";
@@ -143,6 +198,11 @@ namespace Filatelist1
             priceLabel.Text = "";
         }
 
+        /// <summary>
+        /// Кнопка "Удалить марку из коллекции".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Serial.OpenCollector();
