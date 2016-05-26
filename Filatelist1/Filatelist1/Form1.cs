@@ -55,6 +55,7 @@ namespace Filatelist1
             RefreshAll();
             foreach (Collector name in Serial.collectorsList)
                 listBox1.Items.Add(name.Name);
+            listBox2.Items.Clear();
 
         }
 
@@ -88,7 +89,6 @@ namespace Filatelist1
 
             }
         }
-              
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -118,6 +118,7 @@ namespace Filatelist1
                 countryLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Country;
                 tirageLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Tirage;
                 specialLabel.Text = Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id].Special;
+                deleteButton.Visible = true;
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -138,7 +139,19 @@ namespace Filatelist1
             countryLabel.Text = "";
             tirageLabel.Text = "";
             specialLabel.Text = "";
-        }       
+            deleteButton.Visible = false;
+            priceLabel.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Serial.OpenCollector();
+            Serial.OpenMark();
+            Serial.collectorsList[Serial.collectorsList[listBox1.SelectedIndex].Id].Listmarks.Remove(Serial.collectorsList[listBox1.SelectedIndex].Listmarks[Serial.marksList[listBox2.SelectedIndex].Id]);
+            Serial.marksList[listBox2.SelectedIndex].Coll.Name = "Сохранено в базе";
+            Serial.SaveMark();
+            Serial.SaveCollector();
+        }
     }
 }
 

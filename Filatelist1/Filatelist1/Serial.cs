@@ -15,10 +15,14 @@ namespace Filatelist1
     [Serializable]
     class Serial
     {
-        public static ListOfMarks marksList = new ListOfMarks();
 
-        public static ListOfCollectors collectorsList = new ListOfCollectors();
+        public static ListOfMarks marksList = new ListOfMarks();                      //общий список марок
+        public static ListOfCollectors collectorsList = new ListOfCollectors();       //общий список коллекционеров
 
+
+        /// <summary>
+        /// Сохранение изменений в общем списке коллекционеров.
+        /// </summary>
         public static void SaveCollector()
         {
             BinaryFormatter binFormat = new BinaryFormatter();
@@ -32,6 +36,9 @@ namespace Filatelist1
             catch { }
         }
 
+        /// <summary>
+        /// Сооздание или открытие общего списка коллекционеров.
+        /// </summary>
         public static void OpenCollector()
         {
             BinaryFormatter binFormat = new BinaryFormatter();
@@ -45,6 +52,9 @@ namespace Filatelist1
             catch { }
         }
 
+        /// <summary>
+        /// Сооздание или открытие общего списка марок.
+        /// </summary>
         public static void OpenMark()
         {
             BinaryFormatter binFormat = new BinaryFormatter();
@@ -58,6 +68,9 @@ namespace Filatelist1
             catch { }
         }
 
+        /// <summary>
+        /// Сохранение изменений в общем списке марок.
+        /// </summary>
         public static void SaveMark()
         {
             BinaryFormatter binFormat = new BinaryFormatter();
@@ -70,6 +83,6 @@ namespace Filatelist1
             }
             catch { }
         }
-        
+
     }
 }

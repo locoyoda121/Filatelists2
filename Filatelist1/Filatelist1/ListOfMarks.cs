@@ -11,6 +11,6 @@ namespace Filatelist1
     [Serializable]
     class ListOfMarks : List<Marka>
     {
-    
+
     }
 }

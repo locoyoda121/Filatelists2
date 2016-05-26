@@ -16,6 +16,10 @@ namespace Filatelist1
         {
             InitializeComponent();
         }
-        
+
+        private void okButton_Click(object sender, EventArgs e)
+        {            
+            this.Close();
+        }
     }
 }

@@ -120,20 +120,34 @@ namespace Filatelist1
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+
             Serial.OpenCollector();
+            Serial.OpenMark();
             DataGridViewRow selectedRow = collectorGridView.Rows[collectorGridView.SelectedCells[0].RowIndex];
+
+            foreach (Marka mark in Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks)
+            {
+                    Serial.marksList.Remove(Serial.marksList.Find(marka=>marka.Coll.Name == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Name));
+            }
+
+            Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks.Clear();
             Serial.collectorsList.Remove(Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
-            var delmark = Serial.marksList.Find(mark => mark.Coll == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
-            Serial.marksList.Remove(delmark);
+            
             Serial.SaveCollector();
             Serial.SaveMark();
             FillGridView();
+
+
         }
 
         private void collectorGridView_Click(object sender, EventArgs e)
         {
             deleteButton.Visible = true;
         }
+
+
+
+
     }
 }
 

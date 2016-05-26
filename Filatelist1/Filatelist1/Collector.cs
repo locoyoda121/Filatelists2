@@ -11,12 +11,12 @@ namespace Filatelist1
     [Serializable]
     class Collector
     {
-        public string Country { set; get; }     // Страна
-        public string Name { set; get; }    // Имя
-        public string Phone { set; get; }     // телефон
-        public int Id { set; get; } // Номер коллекционера.
-        public ListOfMarks Listmarks;   // Колекция марок
-        
+        public string Country { set; get; }      // Страна
+        public string Name { set; get; }         // Имя
+        public string Phone { set; get; }        // телефон
+        public int Id { set; get; }              // Номер коллекционера.
+        public ListOfMarks Listmarks;            // Колекция марок
+
         /// <summary>
         /// Конструктор для создания нового коллекционера.
         /// </summary>
@@ -24,7 +24,6 @@ namespace Filatelist1
         /// <param name="c"></param>
         /// <param name="p"></param>
         /// <param name="id"></param>
-
         public Collector(string n, string c, string p, int id)
         {
             Name = n;
@@ -33,7 +32,14 @@ namespace Filatelist1
             Id = id;
             Listmarks = new ListOfMarks();
         }
-        
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Collector()
+        {
+
+        }
 
 
     }

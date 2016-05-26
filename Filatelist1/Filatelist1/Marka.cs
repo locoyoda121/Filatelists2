@@ -10,16 +10,16 @@ namespace Filatelist1
 {
     [Serializable]
     class Marka
-      
+
     {
-       
-        public string Country { set; get; } // страна
-        public string Nominal { set; get; }  // номинальная цена
-        public string Year { set; get; }  // год выпуска
-        public string Tirage { set; get; }  // тираж
-        public string Special { set; get; }   // особенности
-        public int Id { set; get; } // Номар марки
-        public Collector Coll { set; get; } // коллекционер
+
+        public string Country { set; get; }      // страна
+        public string Nominal { set; get; }      // номинальная цена
+        public string Year { set; get; }         // год выпуска
+        public string Tirage { set; get; }       // тираж
+        public string Special { set; get; }      // особенности
+        public int Id { set; get; }              // Номар марки
+        public Collector Coll { set; get; }      // коллекционер
 
         /// <summary>
         /// Конструктор.
@@ -42,7 +42,16 @@ namespace Filatelist1
             Coll = c;
         }
 
-       
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Marka()
+        {
+
+        }
+
+
+
         /// <summary>
         /// Перекрытие метода ToString().
         /// </summary>

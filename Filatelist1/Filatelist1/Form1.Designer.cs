@@ -34,7 +34,6 @@
             this.маркуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.коллекционераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.обменникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.маркиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.коллекционерыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +54,7 @@
             this.specialLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,13 +62,12 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.обменникToolStripMenuItem,
             this.маркиToolStripMenuItem,
             this.коллекционерыToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(563, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(502, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,12 +109,6 @@
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
-            // обменникToolStripMenuItem
-            // 
-            this.обменникToolStripMenuItem.Name = "обменникToolStripMenuItem";
-            this.обменникToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.обменникToolStripMenuItem.Text = "Обменник";
             // 
             // маркиToolStripMenuItem
             // 
@@ -209,7 +202,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(367, 294);
+            this.button1.Location = new System.Drawing.Point(393, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 36);
             this.button1.TabIndex = 13;
@@ -283,12 +276,24 @@
             this.priceLabel.Size = new System.Drawing.Size(0, 13);
             this.priceLabel.TabIndex = 22;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(279, 187);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(209, 24);
+            this.deleteButton.TabIndex = 23;
+            this.deleteButton.Text = "Удалить марку из коллекции";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AccessibleDescription = "form1";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 342);
+            this.ClientSize = new System.Drawing.Size(502, 342);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.specialLabel);
@@ -327,7 +332,6 @@
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem обменникToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem маркиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem коллекционерыToolStripMenuItem;
         private System.Windows.Forms.ListBox listBox1;
@@ -345,6 +349,7 @@
         private System.Windows.Forms.Label specialLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

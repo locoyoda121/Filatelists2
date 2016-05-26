@@ -13,7 +13,7 @@ namespace Filatelist1
     public partial class AllMark : Form
     {
         private int n;
-                
+
 
         public AllMark()
         {
@@ -45,8 +45,8 @@ namespace Filatelist1
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            
-            
+
+
             if (searchBox.Text == "По году") n = 1;
             if (searchBox.Text == "По стоимости") n = 2;
             if (searchBox.Text == "По тиражу") n = 3;
@@ -54,9 +54,9 @@ namespace Filatelist1
             if (searchBox.Text == "По теме") n = 5;
             if (searchBox.Text == "По стране") n = 6;
         }
-        
+
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
-        {             
+        {
             switch (n)
             {
                 case 1:
@@ -123,12 +123,12 @@ namespace Filatelist1
         {
             MarksGridView.Rows.Clear();
             foreach (Marka marka in a)
-                MarksGridView.Rows.Add(marka.Id,marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
+                MarksGridView.Rows.Add(marka.Id, marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(n==4 || n == 5 || n == 6)
+            if (n == 4 || n == 5 || n == 6)
             {
                 FillGridViewSearch(SearchText());
             }
@@ -136,7 +136,7 @@ namespace Filatelist1
             {
                 FillGridViewSearch(SearchDigits());
             }
-            
+
         }
 
         private ListOfMarks SearchText()
@@ -148,9 +148,9 @@ namespace Filatelist1
             }
             else
             {
-                foreach(Marka mark in Serial.marksList)
+                foreach (Marka mark in Serial.marksList)
                 {
-                    if ((n==4 && mark.Coll.Name.ToLower().Contains(textbox.Text.ToLower())) || (n == 5 && mark.Special.ToLower().Contains(textbox.Text.ToLower())) || (n == 6 && mark.Country.ToLower().Contains(textbox.Text.ToLower())))
+                    if ((n == 4 && mark.Coll.Name.ToLower().Contains(textbox.Text.ToLower())) || (n == 5 && mark.Special.ToLower().Contains(textbox.Text.ToLower())) || (n == 6 && mark.Country.ToLower().Contains(textbox.Text.ToLower())))
                     {
                         searchList.Add(mark);
                     }
@@ -165,7 +165,7 @@ namespace Filatelist1
 
         private IEnumerable<Marka> SearchDigits()
         {
-            
+
             if (mintextBox.Text.Length == 0 || maxtextBox.Text.Length == 0)
             {
                 MessageBox.Show("Вы ничего не ввели");
@@ -175,8 +175,8 @@ namespace Filatelist1
             {
                 switch (n)
                 {
-                    case 1:                        
-                    var searchList = Serial.marksList.Where(mark => Convert.ToInt32(mark.Year) >= Convert.ToInt32(mintextBox.Text) && Convert.ToInt32(mark.Year) <= Convert.ToInt32(maxtextBox.Text));
+                    case 1:
+                        var searchList = Serial.marksList.Where(mark => Convert.ToInt32(mark.Year) >= Convert.ToInt32(mintextBox.Text) && Convert.ToInt32(mark.Year) <= Convert.ToInt32(maxtextBox.Text));
                         return searchList;
                     case 2:
                         searchList = Serial.marksList.Where(mark => Convert.ToInt32(mark.Nominal) >= Convert.ToInt32(mintextBox.Text) && Convert.ToInt32(mark.Nominal) <= Convert.ToInt32(maxtextBox.Text));
@@ -199,9 +199,12 @@ namespace Filatelist1
         private void deleteButton_Click(object sender, EventArgs e)
         {
             Serial.OpenMark();
+            Serial.OpenCollector();
             DataGridViewRow selectedRow = MarksGridView.Rows[MarksGridView.SelectedCells[0].RowIndex];
+            
             Serial.marksList.Remove(Serial.marksList.Find(mark => mark.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
             Serial.SaveMark();
+            Serial.SaveCollector();
             FillGridView();
         }
 

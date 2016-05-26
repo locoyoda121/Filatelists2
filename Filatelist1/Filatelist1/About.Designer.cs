@@ -38,47 +38,51 @@
             // 
             // labelProductName
             // 
+            this.labelProductName.AutoSize = true;
             this.labelProductName.Location = new System.Drawing.Point(15, 30);
             this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(218, 17);
+            this.labelProductName.Size = new System.Drawing.Size(210, 13);
             this.labelProductName.TabIndex = 20;
             this.labelProductName.Text = "Product Name: Справочник филателиста";
-            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.label1.MaximumSize = new System.Drawing.Size(0, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Version: 1.0.1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
+            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.label2.MaximumSize = new System.Drawing.Size(0, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 17);
+            this.label2.Size = new System.Drawing.Size(149, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Copyright: Володин Дмитрий";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
+            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 118);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.label3.MaximumSize = new System.Drawing.Size(0, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 17);
+            this.label3.Size = new System.Drawing.Size(126, 13);
             this.label3.TabIndex = 23;
             this.label3.Text = "Company name: ПИ-15-2";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxDescription
             // 
@@ -97,17 +101,18 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(155, 233);
+            this.okButton.Location = new System.Drawing.Point(152, 233);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 25;
             this.okButton.Text = "На главную";
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 268);
+            this.ClientSize = new System.Drawing.Size(242, 268);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label3);
