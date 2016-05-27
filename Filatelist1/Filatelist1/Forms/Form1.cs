@@ -219,7 +219,6 @@ namespace Filatelist1
         /// <param name="e"></param>
         private void сохранитьВTXTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             using (StreamWriter writer = new StreamWriter("d:\\ListOfMarks.txt", false, Encoding.UTF8))
             {
                 foreach (Marka mark in Serial.marksList)

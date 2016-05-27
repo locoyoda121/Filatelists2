@@ -68,7 +68,7 @@
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label1);
             this.Name = "HelpForm";
-            this.Text = "HelpForm";
+            this.Text = "Помощь";
             this.ResumeLayout(false);
             this.PerformLayout();
 

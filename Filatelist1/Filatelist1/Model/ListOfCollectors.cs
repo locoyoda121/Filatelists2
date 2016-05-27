@@ -31,6 +31,5 @@ namespace Filatelist1
             }
             return false;
         }
-
     }
 }

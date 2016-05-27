@@ -40,7 +40,6 @@ namespace Filatelist1
             {
                 MarksGridView.Rows.Add(marka.Id, marka.Country, marka.Year, marka.Nominal, marka.Tirage, marka.Special, marka.Coll.Name);
             }
-
         }
 
         /// <summary>

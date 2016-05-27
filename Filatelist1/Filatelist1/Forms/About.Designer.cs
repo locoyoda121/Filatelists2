@@ -120,7 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelProductName);
             this.Name = "About";
-            this.Text = "About";
+            this.Text = "Справка";
             this.ResumeLayout(false);
             this.PerformLayout();
 

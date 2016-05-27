@@ -190,7 +190,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddMark";
-            this.Text = "AddMark";
+            this.Text = "Добавить марку";
             this.Load += new System.EventHandler(this.AddMark_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CollectorBindingSource)).EndInit();
             this.ResumeLayout(false);

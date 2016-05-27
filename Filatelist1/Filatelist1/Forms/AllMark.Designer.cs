@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.MarksGridView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tirage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.special = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.main = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textbox = new System.Windows.Forms.TextBox();
@@ -40,13 +47,6 @@
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tirage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.special = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,47 @@
             this.MarksGridView.Size = new System.Drawing.Size(750, 201);
             this.MarksGridView.TabIndex = 0;
             this.MarksGridView.Click += new System.EventHandler(this.MarksGridView_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Номер марки";
+            this.id.Name = "id";
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // year
+            // 
+            this.year.HeaderText = "Год издания";
+            this.year.Name = "year";
+            this.year.ReadOnly = true;
+            // 
+            // nominal
+            // 
+            this.nominal.HeaderText = "Стоимость";
+            this.nominal.Name = "nominal";
+            this.nominal.ReadOnly = true;
+            // 
+            // tirage
+            // 
+            this.tirage.HeaderText = "Тираж";
+            this.tirage.Name = "tirage";
+            this.tirage.ReadOnly = true;
+            // 
+            // special
+            // 
+            this.special.HeaderText = "Тема";
+            this.special.Name = "special";
+            this.special.ReadOnly = true;
+            // 
+            // collector
+            // 
+            this.collector.HeaderText = "Коллекционер";
+            this.collector.Name = "collector";
+            this.collector.ReadOnly = true;
             // 
             // main
             // 
@@ -154,6 +195,7 @@
             // 
             // searchBox
             // 
+            this.searchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchBox.FormattingEnabled = true;
             this.searchBox.Location = new System.Drawing.Point(6, 29);
             this.searchBox.Name = "searchBox";
@@ -183,47 +225,6 @@
             this.deleteButton.Visible = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // id
-            // 
-            this.id.HeaderText = "Номер марки";
-            this.id.Name = "id";
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
-            // 
-            // year
-            // 
-            this.year.HeaderText = "Год издания";
-            this.year.Name = "year";
-            this.year.ReadOnly = true;
-            // 
-            // nominal
-            // 
-            this.nominal.HeaderText = "Стоимость";
-            this.nominal.Name = "nominal";
-            this.nominal.ReadOnly = true;
-            // 
-            // tirage
-            // 
-            this.tirage.HeaderText = "Тираж";
-            this.tirage.Name = "tirage";
-            this.tirage.ReadOnly = true;
-            // 
-            // special
-            // 
-            this.special.HeaderText = "Тема";
-            this.special.Name = "special";
-            this.special.ReadOnly = true;
-            // 
-            // collector
-            // 
-            this.collector.HeaderText = "Коллекционер";
-            this.collector.Name = "collector";
-            this.collector.ReadOnly = true;
-            // 
             // AllMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,7 +236,7 @@
             this.Controls.Add(this.main);
             this.Controls.Add(this.MarksGridView);
             this.Name = "AllMark";
-            this.Text = "AllMark";
+            this.Text = "Марки";
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

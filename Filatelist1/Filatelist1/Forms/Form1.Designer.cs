@@ -33,8 +33,8 @@
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.маркуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.коллекционераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьВTXTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.маркиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.коллекционерыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +88,7 @@
             this.маркуToolStripMenuItem,
             this.коллекционераToolStripMenuItem});
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             // 
             // маркуToolStripMenuItem
@@ -105,19 +105,19 @@
             this.коллекционераToolStripMenuItem.Text = "Коллекционера";
             this.коллекционераToolStripMenuItem.Click += new System.EventHandler(this.коллекционераToolStripMenuItem_Click);
             // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
             // сохранитьВTXTToolStripMenuItem
             // 
             this.сохранитьВTXTToolStripMenuItem.Name = "сохранитьВTXTToolStripMenuItem";
-            this.сохранитьВTXTToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.сохранитьВTXTToolStripMenuItem.Text = "Сохранить в TXT";
+            this.сохранитьВTXTToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.сохранитьВTXTToolStripMenuItem.Text = "Сохранить в текстовый файл";
             this.сохранитьВTXTToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВTXTToolStripMenuItem_Click);
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // маркиToolStripMenuItem
             // 
@@ -322,7 +322,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Справочник филателиста";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.CausesValidationChanged += new System.EventHandler(this.коллекционераToolStripMenuItem_Click);
             this.menuStrip1.ResumeLayout(false);

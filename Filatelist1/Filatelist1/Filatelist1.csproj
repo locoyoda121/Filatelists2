@@ -125,6 +125,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\Collector.datasource" />
     <None Include="Properties\DataSources\ListOfCollectors.datasource" />
     <None Include="Properties\DataSources\ListOfMarks.datasource" />

@@ -12,7 +12,6 @@ namespace Filatelist1
     /// <summary>
     /// Класс, с помощью которого будет осуществляться работа с марками.
     /// </summary>
-
     [Serializable]
     class Marka
 
@@ -53,8 +52,6 @@ namespace Filatelist1
         {
 
         }
-
-
 
         /// <summary>
         /// Перекрытие метода ToString().

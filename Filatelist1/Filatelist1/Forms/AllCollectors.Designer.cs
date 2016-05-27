@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.collectorGridView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.main = new System.Windows.Forms.Button();
             this.savebutton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -36,11 +41,6 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.collectorGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,6 +61,35 @@
             this.collectorGridView.TabIndex = 0;
             this.collectorGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.collectorGridView_CellEndEdit);
             this.collectorGridView.Click += new System.EventHandler(this.collectorGridView_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Номер";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Имя";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Страна";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Телефон";
+            this.phone.Name = "phone";
+            // 
+            // count
+            // 
+            this.count.HeaderText = "Количество марок в коллекции";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
             // 
             // main
             // 
@@ -115,6 +144,7 @@
             // 
             // searchBox
             // 
+            this.searchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchBox.FormattingEnabled = true;
             this.searchBox.Location = new System.Drawing.Point(6, 19);
             this.searchBox.Name = "searchBox";
@@ -132,35 +162,6 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Visible = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Номер";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Имя";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Страна";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Телефон";
-            this.phone.Name = "phone";
-            // 
-            // count
-            // 
-            this.count.HeaderText = "Количество марок в коллекции";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
             // 
             // button2
             // 
@@ -184,7 +185,7 @@
             this.Controls.Add(this.main);
             this.Controls.Add(this.collectorGridView);
             this.Name = "AllCollectors";
-            this.Text = "AllCollectors";
+            this.Text = "Коллекционеры";
             ((System.ComponentModel.ISupportInitialize)(this.collectorGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
