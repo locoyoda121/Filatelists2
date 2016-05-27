@@ -67,6 +67,9 @@
             this.ClientSize = new System.Drawing.Size(357, 411);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HelpForm";
             this.Text = "Помощь";
             this.ResumeLayout(false);

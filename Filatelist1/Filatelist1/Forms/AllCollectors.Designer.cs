@@ -48,6 +48,7 @@
             // 
             // collectorGridView
             // 
+            this.collectorGridView.AllowUserToAddRows = false;
             this.collectorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.collectorGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -184,6 +185,9 @@
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.main);
             this.Controls.Add(this.collectorGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AllCollectors";
             this.Text = "Коллекционеры";
             ((System.ComponentModel.ISupportInitialize)(this.collectorGridView)).EndInit();

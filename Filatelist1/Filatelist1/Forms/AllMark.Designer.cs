@@ -46,13 +46,13 @@
             this.maxtextBox = new System.Windows.Forms.TextBox();
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MarksGridView
             // 
+            this.MarksGridView.AllowUserToAddRows = false;
             this.MarksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MarksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -66,7 +66,6 @@
             this.MarksGridView.Name = "MarksGridView";
             this.MarksGridView.Size = new System.Drawing.Size(750, 201);
             this.MarksGridView.TabIndex = 0;
-            this.MarksGridView.Click += new System.EventHandler(this.MarksGridView_Click);
             // 
             // id
             // 
@@ -214,27 +213,18 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(12, 356);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(109, 39);
-            this.deleteButton.TabIndex = 4;
-            this.deleteButton.Text = "Удалить марку";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Visible = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // AllMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 407);
-            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.main);
             this.Controls.Add(this.MarksGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AllMark";
             this.Text = "Марки";
             ((System.ComponentModel.ISupportInitialize)(this.MarksGridView)).EndInit();
@@ -256,7 +246,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textbox;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn collector;
         private System.Windows.Forms.DataGridViewTextBoxColumn special;

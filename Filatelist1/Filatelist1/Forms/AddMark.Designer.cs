@@ -86,11 +86,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 158);
+            this.label5.Location = new System.Drawing.Point(42, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Особенность: ";
+            this.label5.Text = "Тема: ";
             // 
             // countryBox
             // 
@@ -189,6 +189,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddMark";
             this.Text = "Добавить марку";
             this.Load += new System.EventHandler(this.AddMark_Load);

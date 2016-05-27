@@ -68,7 +68,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(502, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(590, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -168,9 +168,9 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(153, 27);
+            this.listBox2.Location = new System.Drawing.Point(147, 27);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 264);
+            this.listBox2.Size = new System.Drawing.Size(152, 264);
             this.listBox2.TabIndex = 4;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -212,7 +212,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(393, 294);
+            this.button1.Location = new System.Drawing.Point(481, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 36);
             this.button1.TabIndex = 13;
@@ -272,7 +272,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(150, 306);
+            this.label6.Location = new System.Drawing.Point(144, 306);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 13);
             this.label6.TabIndex = 21;
@@ -288,9 +288,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(279, 187);
+            this.deleteButton.Location = new System.Drawing.Point(481, 201);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(209, 24);
+            this.deleteButton.Size = new System.Drawing.Size(97, 37);
             this.deleteButton.TabIndex = 23;
             this.deleteButton.Text = "Удалить марку из коллекции";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -302,7 +302,7 @@
             this.AccessibleDescription = "form1";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 342);
+            this.ClientSize = new System.Drawing.Size(590, 342);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label6);
@@ -320,7 +320,10 @@
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Справочник филателиста";
             this.Load += new System.EventHandler(this.Form1_Load);

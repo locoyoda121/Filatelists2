@@ -250,31 +250,6 @@ namespace Filatelist1
         {
             FillGridView();
         }
-
-        /// <summary>
-        /// Кнопка "Удалить марку".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            Serial.OpenMark();
-            Serial.OpenCollector();
-            DataGridViewRow selectedRow = MarksGridView.Rows[MarksGridView.SelectedCells[0].RowIndex];
-            Serial.marksList.Remove(Serial.marksList.Find(mark => mark.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
-            Serial.SaveMark();
-            Serial.SaveCollector();
-            FillGridView();
-        }
-
-        /// <summary>
-        /// Появление кнопки "Удалить марку" после нажатия на ячейку марки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MarksGridView_Click(object sender, EventArgs e)
-        {
-            deleteButton.Visible = true;
-        }
+        
     }
 }

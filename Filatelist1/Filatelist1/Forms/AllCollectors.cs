@@ -167,19 +167,26 @@ namespace Filatelist1
         {
             Serial.OpenCollector();
             Serial.OpenMark();
-            DataGridViewRow selectedRow = collectorGridView.Rows[collectorGridView.SelectedCells[0].RowIndex];
-
-            foreach (Marka mark in Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks)
+            try
             {
-                Serial.marksList.Remove(Serial.marksList.Find(marka => marka.Coll.Name == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Name));
+                DataGridViewRow selectedRow = collectorGridView.Rows[collectorGridView.SelectedCells[0].RowIndex];
+                foreach (Marka mark in Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks)
+                {
+                    Serial.marksList.Remove(Serial.marksList.Find(marka => marka.Coll.Name == Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Name));
+                }
+
+                Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks.Clear();
+                Serial.collectorsList.Remove(Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
+
+                Serial.SaveCollector();
+                Serial.SaveMark();
+                FillGridView();
             }
+            catch (ArgumentOutOfRangeException)
+            {
 
-            Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)).Listmarks.Clear();
-            Serial.collectorsList.Remove(Serial.collectorsList.Find(coll => coll.Id == Convert.ToInt32(selectedRow.Cells["id"].Value)));
-
-            Serial.SaveCollector();
-            Serial.SaveMark();
-            FillGridView();
+            }
+            
         }
 
         /// <summary>
