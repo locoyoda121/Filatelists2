@@ -117,7 +117,7 @@ namespace Filatelist1
         /// <returns></returns>
         private bool CheckYear()
         {
-            if (Convert.ToInt32(yearBox.Text) > DateTime.Now.Year || Convert.ToInt32(yearBox.Text) < 0)
+            if (Convert.ToInt32(yearBox.Text) > DateTime.Now.Year || Convert.ToInt32(yearBox.Text) < 1800)
             {
                 yearBox.Text = string.Empty;
                 return false;
