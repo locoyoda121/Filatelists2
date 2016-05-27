@@ -17,7 +17,6 @@ C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filateli
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.pdb
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\bin\Debug\Filatelist1.exe
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\bin\Debug\Filatelist1.pdb
-C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.csprojResolveAssemblyReference.cache
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.About.resources
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.AddCollector.resources
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.AddMark.resources
@@ -26,3 +25,5 @@ C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filateli
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.Form1.resources
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.Properties.Resources.resources
 C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.csproj.GenerateResource.Cache
+C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.csprojResolveAssemblyReference.cache
+C:\Users\Loco\Documents\Visual Studio 2015\Projects\Filatelists2-master\Filatelist1\Filatelist1\obj\Debug\Filatelist1.HelpForm.resources
