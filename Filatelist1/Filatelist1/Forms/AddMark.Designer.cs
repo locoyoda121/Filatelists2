@@ -44,6 +44,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.CollectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.CollectorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,11 +171,22 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(-1, 310);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(282, 48);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Примечание: год выпуска марки не может быть меньше 1840(год выпуска первой марки)" +
+    " и больше текущего года.";
+            // 
             // AddMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 305);
+            this.ClientSize = new System.Drawing.Size(278, 361);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.collectorBox);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.BindingSource CollectorBindingSource;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

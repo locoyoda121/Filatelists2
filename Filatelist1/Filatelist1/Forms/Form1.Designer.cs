@@ -56,6 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,7 +213,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(481, 294);
+            this.button1.Location = new System.Drawing.Point(481, 325);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 36);
             this.button1.TabIndex = 13;
@@ -297,12 +298,22 @@
             this.deleteButton.Visible = false;
             this.deleteButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, 346);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(590, 27);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Примечение: обновляйте страницу после добавления/удаления коллекционера.";
+            // 
             // Form1
             // 
             this.AccessibleDescription = "form1";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 342);
+            this.ClientSize = new System.Drawing.Size(590, 373);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label6);
@@ -364,6 +375,7 @@
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.ToolStripMenuItem сохранитьВTXTToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

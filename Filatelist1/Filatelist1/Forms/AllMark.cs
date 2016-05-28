@@ -77,25 +77,13 @@ namespace Filatelist1
             switch (n)
             {
                 case 1:
-                    VisDigits();
-                    textbox.Visible = false;
-                    break;
                 case 2:
-                    VisDigits();
-                    textbox.Visible = false;
-                    break;
                 case 3:
                     VisDigits();
                     textbox.Visible = false;
                     break;
                 case 4:
-                    NonVisDigits();
-                    textbox.Visible = true;
-                    break;
                 case 5:
-                    NonVisDigits();
-                    textbox.Visible = true;
-                    break;
                 case 6:
                     NonVisDigits();
                     textbox.Visible = true;
@@ -250,6 +238,6 @@ namespace Filatelist1
         {
             FillGridView();
         }
-        
+
     }
 }
